@@ -175,9 +175,13 @@ h3 {
 }
 
 .status-hero h1 {
-  font-size: clamp(2.75rem, 5vw, 4.25rem);
+  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
   line-height: 1.02;
   margin-bottom: 24px;
+}
+
+.status-hero__line {
+  display: block;
 }
 
 .status-hero__accent {
