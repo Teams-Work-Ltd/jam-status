@@ -48,3 +48,9 @@ The page reads the public WorkOS and Cloudflare Statuspage feeds directly in the
 `netlify.toml` defines the primary Netlify static site and its security and cache headers. Netlify runs `npm run check` before publishing `public/`. Keep the generated `netlify.app` URL as an emergency fallback even when a custom domain is added.
 
 `render.yaml` describes the temporary Render deployment created during provider evaluation. Render's public endpoint uses Cloudflare at the edge, so it is not the independent status route and should be removed after the Netlify deployment is verified.
+
+## Availability checks
+
+GitHub Actions requests the Jam landing page and the independent status page at minutes 7, 22, 37 and 52 of every hour. Each check requires HTTP success and the expected page title. It can also be run manually from the Actions tab.
+
+This is a free, independent check, not a promise of continuous monitoring. GitHub may delay scheduled runs and disables schedules in a public repository after 60 days without repository activity. The person who owns incident response must enable failed-workflow notifications and review the workflow history. Use a dedicated monitoring service before relying on immediate paging.

@@ -1,0 +1,48 @@
+name: Check public availability
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-availability
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Check ${{ matrix.target }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: Jam
+            url: https://jam.teams.work/
+            marker: <title>Jam</title>
+          - target: Jam status
+            url: https://jam-status.netlify.app/
+            marker: <title>Jam service status</title>
+    steps:
+      - name: Request public page
+        env:
+          EXPECTED_MARKER: ${{ matrix.marker }}
+          TARGET_URL: ${{ matrix.url }}
+        run: |
+          set -euo pipefail
+          response_file="$(mktemp)"
+          curl \
+            --fail \
+            --location \
+            --max-time 20 \
+            --output "$response_file" \
+            --retry 2 \
+            --retry-delay 3 \
+            --show-error \
+            --silent \
+            "$TARGET_URL"
+          grep --fixed-strings --quiet "$EXPECTED_MARKER" "$response_file"
