@@ -14,24 +14,14 @@ concurrency:
 
 jobs:
   check:
-    name: Check ${{ matrix.target }}
+    name: Check Jam status
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - target: Jam
-            url: https://jam.teams.work/
-            marker: <title>Jam</title>
-          - target: Jam status
-            url: https://jam-status.netlify.app/
-            marker: <title>Jam service status</title>
     steps:
       - name: Request public page
         env:
-          EXPECTED_MARKER: ${{ matrix.marker }}
-          TARGET_URL: ${{ matrix.url }}
+          EXPECTED_MARKER: <title>Jam service status</title>
+          TARGET_URL: https://jam-status.netlify.app/
         run: |
           set -euo pipefail
           response_file="$(mktemp)"

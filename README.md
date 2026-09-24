@@ -51,6 +51,8 @@ The page reads the public WorkOS and Cloudflare Statuspage feeds directly in the
 
 ## Availability checks
 
-GitHub Actions requests the Jam landing page and the independent status page at minutes 7, 22, 37 and 52 of every hour. Each check requires HTTP success and the expected page title. It can also be run manually from the Actions tab.
+GitHub Actions requests the independent status page at minutes 7, 22, 37 and 52 of every hour. The check requires HTTP success and the expected page title. It can also be run manually from the Actions tab.
 
 This is a free, independent check, not a promise of continuous monitoring. GitHub may delay scheduled runs and disables schedules in a public repository after 60 days without repository activity. The person who owns incident response must enable failed-workflow notifications and review the workflow history. Use a dedicated monitoring service before relying on immediate paging.
+
+This workflow does not check the Jam application. Jam's Cloudflare edge returned HTTP 403 to GitHub-hosted runners during setup. Application monitoring therefore needs a probe path accepted by the edge controls or a dedicated monitoring service.
