@@ -1,0 +1,30 @@
+[build]
+  command = "npm run check"
+  publish = "public"
+
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://www.cloudflarestatus.com https://status.workos.com; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+
+[[headers]]
+  for = "/index.html"
+
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/status.json"
+
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/incidents.json"
+
+  [headers.values]
+    Cache-Control = "no-store"

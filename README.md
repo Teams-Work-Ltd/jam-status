@@ -1,6 +1,6 @@
 # Jam status
 
-Independent public service status for [Jam](https://jam.teams.work/). Render serves the static site outside Jam's Cloudflare application path. GitHub stores the public status record and its review history.
+Independent public service status for [Jam](https://jam.teams.work/). Netlify serves the static site outside Jam's Cloudflare application path. GitHub stores the public status record and its review history.
 
 The repository must contain only information suitable for immediate public release. Never add customer content, credentials, private provider links, workspace identifiers, security investigation detail or unreviewed personal data.
 
@@ -45,4 +45,6 @@ The page reads the public WorkOS and Cloudflare Statuspage feeds directly in the
 
 ## Deployment
 
-`render.yaml` defines the Render static site and its security and cache headers. Render runs `npm run check` before publishing `public/`. Keep the generated `onrender.com` URL as an emergency fallback even when a custom domain is added.
+`netlify.toml` defines the primary Netlify static site and its security and cache headers. Netlify runs `npm run check` before publishing `public/`. Keep the generated `netlify.app` URL as an emergency fallback even when a custom domain is added.
+
+`render.yaml` describes the temporary Render deployment created during provider evaluation. Render's public endpoint uses Cloudflare at the edge, so it is not the independent status route and should be removed after the Netlify deployment is verified.
