@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Jam</title>
+  <defs><linearGradient id="tile" x1="20" y1="12" x2="105" y2="116" gradientUnits="userSpaceOnUse"><stop stop-color="#2ebcf4"/><stop offset=".35" stop-color="#7168f0"/><stop offset=".7" stop-color="#e64db2"/><stop offset="1" stop-color="#ff686d"/></linearGradient></defs>
+  <rect x="4" y="4" width="120" height="120" rx="32" fill="url(#tile)"/>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="10">
+    <path d="M28 51v8m5 10v7" opacity=".55"/><path d="M45 40v16m5 12v14" opacity=".78"/><path d="M62 31v25m5 12v25"/><path d="M79 50v13m5 12v14" opacity=".78"/><path d="M96 44v9m5 11v8" opacity=".55"/>
+  </g>
+</svg>

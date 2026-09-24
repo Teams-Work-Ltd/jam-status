@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Current service status and incident updates for Jam." />
+    <meta name="theme-color" content="#070a20" />
+    <link rel="icon" href="/jam-favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/inter.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Jam service status</title>
+  </head>
+  <body>
+    <main class="status-shell">
+      <header class="status-header">
+        <a aria-label="Jam home" class="status-home" href="https://jam.teams.work/">
+          <span aria-hidden="true" class="brand-mark">
+            <svg viewBox="0 0 32 32" focusable="false">
+              <path class="brand-mark__bar brand-mark__bar--1" d="M7 12.75v2m1.25 2.5V19" />
+              <path class="brand-mark__bar brand-mark__bar--2" d="M11.25 10v4m1.25 3v3.5" />
+              <path class="brand-mark__bar brand-mark__bar--3" d="M15.5 7.75V14m1.25 3v6.25" />
+              <path class="brand-mark__bar brand-mark__bar--4" d="M19.75 12.5v3.25M21 18.75v3.5" />
+              <path class="brand-mark__bar brand-mark__bar--5" d="M24 11v2.25M25.25 16v2" />
+            </svg>
+          </span>
+        </a>
+        <a class="status-back" href="https://jam.teams.work/">Back to Jam</a>
+      </header>
+
+      <section class="status-hero">
+        <p class="eyebrow"><span aria-hidden="true" class="pulse-mark"></span> Service status</p>
+        <h1>What&apos;s happening with Jam.</h1>
+        <p>Current incidents, useful updates and the services Jam depends on.</p>
+      </section>
+
+      <section aria-busy="true" aria-labelledby="current-status" class="status-current" id="jam-status">
+        <span aria-hidden="true" class="status-current__icon" id="jam-status-icon"></span>
+        <div>
+          <p class="eyebrow" id="jam-status-label">Checking Jam</p>
+          <h2 id="current-status">Loading the current notice…</h2>
+          <p id="jam-status-summary">Reading the latest published Jam status.</p>
+          <dl class="status-current__details" hidden id="jam-status-details">
+            <div>
+              <dt>Affected</dt>
+              <dd id="jam-status-affected"></dd>
+            </div>
+            <div>
+              <dt>What to do</dt>
+              <dd id="jam-status-action"></dd>
+            </div>
+            <div>
+              <dt>Last updated</dt>
+              <dd id="jam-status-updated"></dd>
+            </div>
+            <div>
+              <dt>Next update</dt>
+              <dd id="jam-status-next"></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section aria-labelledby="dependencies-title" class="dependency-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Provider context</p>
+            <h2 id="dependencies-title">The services behind Jam.</h2>
+          </div>
+          <p>Provider reports are useful context. Jam&apos;s notice above remains the authoritative user-impact update.</p>
+        </div>
+
+        <div class="dependency-grid">
+          <article aria-busy="true" class="dependency-card" id="workos-status">
+            <div class="dependency-card__heading">
+              <div>
+                <p class="dependency-card__kind">Sign-in</p>
+                <h3>WorkOS AuthKit</h3>
+              </div>
+              <span class="status-pill status-pill--checking" id="workos-label">Checking</span>
+            </div>
+            <p id="workos-summary">Reading WorkOS&apos;s provider report.</p>
+            <p class="dependency-card__meta" id="workos-updated"></p>
+            <a href="https://status.workos.com/" rel="noreferrer">Open WorkOS status <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article aria-busy="true" class="dependency-card" id="cloudflare-status">
+            <div class="dependency-card__heading">
+              <div>
+                <p class="dependency-card__kind">Infrastructure</p>
+                <h3>Cloudflare services</h3>
+              </div>
+              <span class="status-pill status-pill--checking" id="cloudflare-label">Checking</span>
+            </div>
+            <p id="cloudflare-summary">Reading the provider components Jam uses.</p>
+            <ul class="component-list" id="cloudflare-components"></ul>
+            <p class="dependency-card__meta" id="cloudflare-updated"></p>
+            <a href="https://www.cloudflarestatus.com/" rel="noreferrer">Open Cloudflare status <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <p class="provider-check-time" id="provider-check-time"></p>
+      </section>
+
+      <section aria-labelledby="history-title" class="history-section">
+        <div>
+          <p class="eyebrow">Previous incidents</p>
+          <h2 id="history-title">What happened before.</h2>
+        </div>
+        <div id="incident-history">
+          <p>Loading incident history…</p>
+        </div>
+      </section>
+
+      <div class="status-actions">
+        <a class="status-report" href="https://jam.teams.work/help#support-diagnostics">
+          Something not listed? Report a problem <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <footer class="public-footer">
+        <a class="public-footer__brand" href="https://jam.teams.work/">Jam</a>
+        <span>Reasonable-efforts support during stated business hours.</span>
+        <nav aria-label="Jam information">
+          <a href="https://jam.teams.work/help">Help</a>
+          <a href="https://jam.teams.work/privacy">Privacy</a>
+        </nav>
+      </footer>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

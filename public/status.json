@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "state": "operational",
+  "updatedAt": "2026-09-24T19:31:46Z",
+  "notice": {
+    "title": "No incident is posted.",
+    "summary": "There is no known incident affecting Jam.",
+    "affected": null,
+    "safeAction": null,
+    "nextUpdate": null
+  }
+}

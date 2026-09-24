@@ -1,0 +1,29 @@
+services:
+  - type: web
+    runtime: static
+    name: jam-status
+    buildCommand: npm run check
+    staticPublishPath: ./public
+    autoDeployTrigger: commit
+    headers:
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; connect-src 'self' https://www.cloudflarestatus.com https://status.workos.com; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+      - path: /*
+        name: Referrer-Policy
+        value: no-referrer
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache
+      - path: /status.json
+        name: Cache-Control
+        value: no-store
+      - path: /incidents.json
+        name: Cache-Control
+        value: no-store
