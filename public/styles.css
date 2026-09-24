@@ -22,6 +22,7 @@
   --amber-soft: rgba(240, 183, 107, 0.12);
   --rose: #ff7e9c;
   --rose-soft: rgba(255, 126, 156, 0.12);
+  --brand-gradient: linear-gradient(135deg, #ff735c 0%, #f2498f 48%, #8a6cff 100%);
   background: var(--background);
 }
 
@@ -174,9 +175,16 @@ h3 {
 }
 
 .status-hero h1 {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2.75rem, 5vw, 4.25rem);
   line-height: 1.02;
   margin-bottom: 24px;
+}
+
+.status-hero__accent {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .status-hero > p:last-child {
