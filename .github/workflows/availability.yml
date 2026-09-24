@@ -44,5 +44,6 @@ jobs:
             --retry-delay 3 \
             --show-error \
             --silent \
+            --user-agent "Jam-Availability-Monitor/1.0 (+https://github.com/Teams-Work-Ltd/jam-status)" \
             "$TARGET_URL"
           grep --fixed-strings --quiet "$EXPECTED_MARKER" "$response_file"
